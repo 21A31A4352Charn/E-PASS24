@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=], initial-scale=1.0">
+    <link rel="stylesheet" href="./user.css"/>
+    <link rel="stylesheet" href="./interface-student.css"/>
+    <title>user</title>
+</head>
+<body>
+    <div class="display">
+        <div class="container">
+            <div class="dashboard">
+                <div class="user">
+                    <img src="C:\Users\murak\OneDrive\Pictures\charan_sai.jpeg" alt="logo"/>
+                </div>
+                <div class="links">
+                    <label for="rollnumber">Roll number</label>
+                    <h2>21A31A4353</h2>
+                </div>
+                <div class="links">
+                    <label for="name">Name</label>
+                    <h2>Aditya Sriram</h2>
+                </div>
+<div class="links">
+                    <label for="section">Section</label>
+                    <h2>A</h2>
+                </div>
+                <div class="links">
+                    <label for="branch">Branch</label>
+                    <h2>CSE-AI</h2>
+                </div>
+                <div class="links">
+                    <label for="section">Year</label>
+                    <h2>&#8545;</h2>
+                </div>
+                <button type="submit" class="submit-btn1">Logout</button>
+            </div>
+        <div class="reson">
+            <div class="heads"><h1>Notifications</h1></div>
+            <div class="data">
+              <div class="sum">
+              <div class="rollnumber"><h3>Roll Number:21A31A4352</h3></div>
+            </div>
+            <div class="sub">
+              <div class="name"><h3>Name:Murakonda murali Krishna</h3></div>
+              </div>
+              <div class="buttons"><button type="submit" class="submit-btn2">Open</button></div>
+            </div>
+        </div>
+        <div id="notification-area">
+        </div>
+        </div>
+    </div>
+    <script>
+        function notify(type,message){
+      (()=>{
+        let n = document.createElement("div");
+        let id = Math.random().toString(36).substr(2,10);
+        n.setAttribute("id",id);
+        n.classList.add("notification",type);
+        n.innerText = message;
+        document.getElementById("notification-area").appendChild(n);
+        setTimeout(()=>{
+          var notifications = document.getElementById("notification-area").getElementsByClassName("notification");
+          for(let i=0;i<notifications.length;i++){
+            if(notifications[i].getAttribute("id") == id){
+              notifications[i].remove();
+              break;
+            }
+          }
+        },5000);
+      })();
+    }
+    
+    function notifySuccess(){
+      notify("success","This is demo success notification message");
+    }
+    function notifyError(){
+      notify("error","This is demo error notification message");
+    }
+    function notifyInfo(){
+      notify("info","This is demo info notification message");
+    }
+      </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=], initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'notinform.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-BzJ+/xj+ZClpPhZnEpcBhVjKwJ1d8f2BjlM1j7t2Qz94Zg7Fq3d18rJjMLcNwCnW7R1/PCk4opOtl+4x95JW8Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>user</title>
+</head>
+<body>
+    <div class="display">
+        <div class="container">
+            <div class="dashboard">
+                {% for hotel,user in data %}
+                <div class="user">
+                    <i class="fa fa-bell"></i>
+
+                    <img src="{{hotel.photo}}" alt="logo"/>
+                </div>
+                <div class="links">
+                    <label for="rollnumber">Roll number</label>
+                    <h2>{{hotel.username}}</h2>
+                </div>
+                <div class="links">
+                    <label for="name">Name</label>
+                    <h2>{{user.first_name}}</h2>
+                </div>
+                  <div class="links">
+                    <label for="section">Section</label>
+                    <h2>{{hotel.section}}</h2>
+                </div>
+                <div class="links">
+                    <label for="branch">Branch</label>
+                    <h2>{{user.last_name}}</h2>
+                </div>
+                <div class="links">
+                    <label for="section">Year</label>
+                    <h2>{{hotel.year}}</h2>
+                </div>
+                {% endfor %}
+                <a href="#" class="notification">
+                    <span>Inbox</span>
+                    <span class="badge">3</span>
+                  </a>
+                <button type="submit" class="submit-btn1">Logout</button>
+            </div>
+            <div class="blok">
+                <div class="heading">
+                <h1>NOTIFIACTION</h1>
+                </div>
+            <div class="ok">
+                <h3>
+                    Subject:<span> Re: Leave Request</span><br><br>
+
+Dear [Student Name],<br><br>
+
+I regret to inform you that we are unable to grant your leave request at this time. After careful consideration of your circumstances and the academic requirements of your program, we have determined that it is not possible for you to take time off without negatively impacting your progress.<br><br>
+
+We understand that you may have personal reasons for requesting leave, but we must ensure that all students receive a fair and consistent academic experience. We encourage you to explore alternative options for addressing your situation, such as speaking with a counselor or academic advisor to determine if there are any accommodations that can be made within your current academic schedule.<br><br>
+
+Please let us know if there are any further questions or concerns you have. We appreciate your understanding in this matter and wish you the best in your academic pursuits.<br><br>
+
+Sincerely,<br><br>
+
+[Your Name]<br><br>
+[School Name]<br><br>
+                </h3>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

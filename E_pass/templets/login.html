@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+    <div class="display">
+        <div class="container">
+            <nav>
+                    <div class="logo">
+                        E-PASS 24
+                    </div>
+                    <ul>
+                      <li><a href="">SERVICES</a></li>
+                        <li><a href="">CONTACT</a></li>
+                        <li><a href="{% url 'ads' %}">ADMIN</a></li>
+                        <li><a href="{% url 'signup' %}">SIGNUP</a></li>
+
+                    </ul>
+                  </nav>
+                <div class="contains">
+                    <div class="section-1">
+                      <h2>Welcome</h2>
+                      <h2>To pragati<span>'</span>s E-PASS website</h2>
+                      <h4>Take leaves in an online mode</h4>
+                    </div>
+                    
+                    <div class="section-2">
+                      
+                        <div class="login-wrapper">
+                            <form action="" method="POST" class="form">
+                              {% csrf_token %}
+                                <h2>Login</h2>
+                              <div class="input-group">
+                                <input type="text" name="username" id="try" required autocomplete="off" onkeyup="detect()">
+                                <label for="loginUser">Roll Number</label>
+                              </div>
+                              <div class="input-group">
+                                <input type="password" name="Password" id="loginPassword" required>
+                                <label for="loginser">Password</label>
+                              </div>
+                              <input type="submit" value="Login" class="submit-btn"><br>
+                              <a href="#forgot-pw" class="forgot-pw">Forgot Password?</a>
+                            </form>
+                            <div id="forgot-pw">
+                                <form  class="form">
+                                  <a href="#" class="close">&times;
+                                  </a>
+                                  <h2>Reset Password</h2>
+                                  <div class="input-group">
+                                    <input type="email" name="email" id="email">
+                                    <label for="email">
+                                    Email
+                                  </label>
+                                  </div>
+                                  <button type="submit" value="Submit" class="submit-btn">Submit</button>
+                                </form>
+                              </div>
+                              </div>
+                              </div>
+                              <div class="follow">
+                                <h3>Follow us on......</h3>
+                                <div class="icon">
+                                    <ul>
+                                      <li><i class="fab fa-youtube"></i></li>
+                                      <li><i class="fab fa-twitter"></i></li>
+                                      <a href="https://www.instagram.com/pragatiengineering/"><li><i class="fab fa-instagram"></i></li></a>
+                                      <li><i class="fab fa-linkedin"></i></li>
+                                    </ul>
+                                </div>
+                              </div>
+                    </div>
+                  </div>
+    <script>
+      function detect(){
+      let text1=document.getElementById("try");
+      text1.value=text1.value.toUpperCase();
+      }
+    </script>
+</body>
+</html>

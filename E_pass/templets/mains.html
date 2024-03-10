@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=], initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'mains.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-BzJ+/xj+ZClpPhZnEpcBhVjKwJ1d8f2BjlM1j7t2Qz94Zg7Fq3d18rJjMLcNwCnW7R1/PCk4opOtl+4x95JW8Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <title>user</title>
+</head>
+<body>
+    <div class="display">
+        <div class="container">
+            <div class="dashboard">
+                {% for hotel,user in data %}
+                <div class="user">
+                    <i class="fa fa-bell"></i>
+
+                    <img src="{{hotel.photo}}" alt="logo"/>
+                </div>
+                <div class="links">
+                    <label for="rollnumber">Roll number</label>
+                    <h2>{{hotel.username}}</h2>
+                </div>
+                <div class="links">
+                    <label for="name">Name</label>
+                    <h2>{{user.first_name}}</h2>
+                </div>
+                  <div class="links">
+                    <label for="section">Section</label>
+                    <h2>{{hotel.section}}</h2>
+                </div>
+                <div class="links">
+                    <label for="branch">Branch</label>
+                    <h2>{{user.last_name}}</h2>
+                </div>
+                <div class="links">
+                    <label for="section">Year</label>
+                    <h2>{{hotel.year}}</h2>
+                </div>
+                {% endfor %}
+                <a href="#" class="notification">
+                    <span>Inbox</span>
+                    <span class="badge">3</span>
+                  </a>
+                <button type="submit" class="submit-btn1">Logout</button>
+            </div>
+            <div class="blok">
+                <div class="heading">
+                <h1>NOTIFIACTION</h1>
+                </div>
+            <div class="ok">
+                <h3>
+                    {% for i,j in report %}
+                    <pre>
+                                                                        Date:{{j.date}}<br><br>   
+    To
+    The HOD
+    Pragati Engnnering College
+    Surampalem
+    kakinda
+    
+    <strong>Subject:Permission for leave</Strong>
+    Respected (Sir/Madam)
+    My self <strong>{{i.first_name}}</strong> and my RollNumber is<strong>{{j.username}}</strong> studying in our College.
+    I want Permission to take leave on {{j.date}}.Because of this reason,
+    <strong><textarea name="reasons" cols="80" rows="2" class="textarea">{{j.reason}}</textarea></strong>
+    so,pleace grant me Permission to take leave.<br><br>
+                                            <strong>Thank you</strong><br>
+    Yours Sincerely
+    {{i.username}},
+    {{i.first_name}},
+    {{i.last_name}}.
+    
+</h3>
+</pre>
+</div><br>
+<div class="bu">
+    <form action="accept" method="POST">
+        {% csrf_token %}
+        <input type="hidden" value={{i.username}} name="rollnumber">
+        <button type="submit" class="submit-btns">Accept</button>
+    </form>
+    <form action="dec" method="POST">
+        {% csrf_token %}
+        <input type="hidden" value={{i.username}} name="rollnumber">
+        <button type="submit" class="btn-btnd">Decline</button>
+    </form>
+    {% endfor %}
+</div>
+        </div>
+    </div>
+</body>
+</html>

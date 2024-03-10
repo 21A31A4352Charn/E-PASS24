@@ -1,0 +1,211 @@
+body{
+  margin: 0px;
+  padding: 0PX;
+  color: white;
+}
+.display{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  background-image: url("/static/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.container{
+    background: rgba(0,0,0,0.7);
+    height: 700px;
+    width: 1200px;
+    margin-left: 11%;
+    padding: 0,20px;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content:start;
+    border-radius: 20px;
+    border:2px solid rgba(255,255,255,0.3);
+    backdrop-filter:blur(1px);
+    box-shadow:  -15px  17px 17px rgba(255,255,255,0.3);
+}
+.dashboard{
+ height: 640px;
+ width:200px;
+ border-radius: 20px 0px 0px 20px;
+ background: rgba(0,0,255,0.5);
+ border:2px solid rgba(255,255,255,0.3);
+ backdrop-filter:blur(5px);
+margin-right: 20px;
+padding: 30px;
+display: flex;
+flex-direction: column;
+justify-content:space-around;
+}
+.submit-btn {
+  display: block;
+  margin-left: auto;
+  border: none;
+  outline: none;
+  background:#fff;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.textarea{
+    background-color:rgba(0,0,0,0);
+    border-radius: 20px;
+    padding: 10px;
+    color: #fff;
+    font-size: 25px;
+}
+img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+.submit-btn1 {
+    display: block;
+    margin-left: auto;
+    border: none;
+    outline: none;
+    background: #ff652f;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  * {
+    font-family:"Raleway";
+  }
+  #notification-area {
+    position:fixed;
+    top:0px;
+    right:10px;
+    width:250px;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+  }
+  #notification-area .notification {
+    position:relative;
+    padding:15px 10px;
+    background:#111;
+    color:#f5f5f5;
+    font-family:"Raleway";
+    font-size:14px;
+    font-weight:600;
+    border-radius:5px;
+    margin:5px 0px;
+    opacity:0;
+    left:20px;
+    animation:showNotification 500ms ease-in-out forwards;
+  }
+  @keyframes showNotification {
+    to {
+      opacity:1;
+      left:0px;
+    }
+  }
+  #notification-area .notification.success {
+    background:#389838;
+  }
+  #notification-area .notification.error {
+    background:orangered;
+  }
+  #notification-area .notification.info {
+    background:#00acee;
+  }
+  .btn{
+    background: #ff652f;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 12px;
+  }
+  .reson{
+    display: inline;
+  }
+.data{
+    height: 60px;
+    width: 895px;
+    background-color:rgba(255,255,255,0.9);
+    margin-top: 3%;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-top:0.1px;
+    display: flex;
+    justify-content:space-evenly;
+}
+.sum{
+    height:60px;
+    width: 25%;
+    display: flex;
+    justify-content:space-evenly;
+}
+.sub{
+    height:60px;
+    width: 45%;
+    display: flex;
+    justify-content:space-evenly;
+}
+.buttons{
+    height: 70px;
+    width:50px;
+    padding-top: 12px;
+}
+.submit-btn2 {
+    display: block;
+    margin-left: auto;
+    border: none;
+    outline: none;
+    background: green;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .rollnumber{
+    text-align:justify;
+    padding-top: 2px;
+    color: black;
+  }
+  .name{
+    padding-top: 2px;
+    color: black;
+  }
+  .reson h2{
+    color: white;
+    height: 10%;
+    width:98%;
+    position: initial;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    background-color: rgb(95, 95, 214);
+    border-radius: 20px 20px 20px 20px;
+}
+.heads{
+    color: white;
+    height: 10%;
+    width:850px;
+    position: initial;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    background-color: rgb(95, 95, 214);
+    border-radius: 20px 20px 20px 20px;
+    margin-top:10px;
+    margin-left: 20px;
+}

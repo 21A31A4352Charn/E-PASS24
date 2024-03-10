@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=], initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'information.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-BzJ+/xj+ZClpPhZnEpcBhVjKwJ1d8f2BjlM1j7t2Qz94Zg7Fq3d18rJjMLcNwCnW7R1/PCk4opOtl+4x95JW8Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>user</title>
+</head>
+<body>
+    <div class="display">
+        <div class="container">
+            <div class="dashboard">
+                {% for hotel,user in data %}
+                <div class="user">
+                    <i class="fa fa-bell"></i>
+
+                    <img src="{{hotel.photo}}" alt="logo"/>
+                </div>
+                <div class="links">
+                    <label for="rollnumber">Roll number</label>
+                    <h2>{{hotel.username}}</h2>
+                </div>
+                <div class="links">
+                    <label for="name">Name</label>
+                    <h2>{{user.first_name}}</h2>
+                </div>
+                  <div class="links">
+                    <label for="section">Section</label>
+                    <h2>{{hotel.section}}</h2>
+                </div>
+                <div class="links">
+                    <label for="branch">Branch</label>
+                    <h2>{{user.last_name}}</h2>
+                </div>
+                <div class="links">
+                    <label for="section">Year</label>
+                    <h2>{{hotel.year}}</h2>
+                </div>
+                {% endfor %}
+                <form action="logout" method="POST">
+                    {% csrf_token %}
+                <button type="submit" class="submit-btn1">Logout</button>
+                </form>
+            </div>
+            <div class="blok">
+            <div class="heading">
+            <h1>NOTIFIACTION</h1>
+            </div>
+            <div class="ok">
+                <h3>
+                    Subject:<span> Approval of Your Leave Request</span><br><br>
+                    
+                    Dear {{data.username}},<br><br>
+                    
+                    I am writing to inform you that your leave request has been approved. You will be granted leave on 24/4/24, as requested. We understand the importance of taking time off to attend to personal matters and we are happy to support you in this regard.<br><br>
+                    
+                    Please ensure that you have completed all pending assignments and coursework before your departure. Also, please make sure that your instructors are informed of your leave and that there are no urgent matters that require your attention before you leave.<br><br>
+                    
+                    If there are any changes or unforeseen circumstances that may affect your leave plans, please let us know as soon as possible so that we can make any necessary adjustments.<br><br>
+                    
+                    We wish you a restful and productive time away from school, and we look forward to your return.<br><br>
+                    
+                    Best regards,<br><br>
+                    
+                    HOD<br><br>
+                    Pragati Engineering Collegr</h3>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

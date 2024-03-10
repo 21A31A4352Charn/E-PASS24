@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=], initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'user.css' %}">
+    <link rel="stylesheet" href="{% static 'interface.css' %}">
+    <title>user</title>
+</head>
+<body>
+  <div class="display">
+    <div class="container">
+        <div class="dashboard">
+            {% for hotel,user in data %}
+          <div class="user">
+            <img src="/media/{{hotel.photo}}" alt="logo">
+          </div>
+            <div class="links">
+                <label for="name">Name</label>
+                <h2>{{user.first_name}}</h2>
+            </div>
+            <div class="links">
+                <label for="branch">Branch</label>
+                <h2>{{user.last_name}}</h2>
+            </div>
+            {% endfor %}
+            <form action="logout" method="POST">
+                {% csrf_token %}
+            <button type="submit" class="submit-btn1">Logout</button>
+            </form>
+        </div>
+        <div class="reson">
+            <h1 class="headings">Notifications For Leave</h1>
+            {% for users in notees %}
+            <div class="data">
+              <div class="sum">
+                <div class="rollnumber"><h3>Roll Number:{{users.username}}</h3></div>
+              </div>
+              <div class="sub">
+                <div class="name"><h3>Leave Date:{{users.date}}</h3></div>
+              </div>
+              <form method="POST" action="open">
+                {% csrf_token %}
+                <input type="hidden" value={{users.username}} name="rollnumber">
+              <div class="buttons"><button type="submit" class="submit-btn2">Open</button></div>
+              </form>
+            </div>
+            {% endfor %}
+          </div>
+
+        </div>
+    </div>
+    <script>
+        function notify(type,message){
+      (()=>{
+        let n = document.createElement("div");
+        let id = Math.random().toString(36).substr(2,10);
+        n.setAttribute("id",id);
+        n.classList.add("notification",type);
+        n.innerText = message;
+        document.getElementById("notification-area").appendChild(n);
+        setTimeout(()=>{
+          var notifications = document.getElementById("notification-area").getElementsByClassName("notification");
+          for(let i=0;i<notifications.length;i++){
+            if(notifications[i].getAttribute("id") == id){
+              notifications[i].remove();
+              break;
+            }
+          }
+        },5000);
+      })();
+    }
+    
+    function notifySuccess(){
+      notify("success","This is demo success notification message");
+    }
+    function notifyError(){
+      notify("error","This is demo error notification message");
+    }
+    function notifyInfo(){
+      notify("info","This is demo info notification message");
+    }
+      </script>
+</body>
+</html>
